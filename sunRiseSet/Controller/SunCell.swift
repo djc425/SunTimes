@@ -24,14 +24,14 @@ class SunCell : UITableViewCell {
         sunImgView.contentMode = .scaleAspectFit
         sunImgView.clipsToBounds = true
         sunImgView.translatesAutoresizingMaskIntoConstraints = false
-        sunImgView.tintColor = .gray
+       // sunImgView.tintColor = .gray
       //  sunImgView.layer.opacity = 0.6
         return sunImgView
     }()
     
     private let sunTimeLabel: UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .gray
+        lbl.textColor = .darkGray
         lbl.textAlignment = .left
         lbl.font = UIFont(name: "futura", size: 24)
         return lbl

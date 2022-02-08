@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     var dayLengthLabel: UILabel!
     
     //background images
-   let sunRiseBackground = UIImage(named: "sunshine.png", in: Bundle.main, with: nil)
+   let sunshineBackround = UIImage(named: "sunshine.png", in: Bundle.main, with: nil)
     
     
     override func viewDidLoad() {
@@ -75,6 +75,7 @@ class ViewController: UIViewController {
     
     @objc func dateAdjust(_ sender: UIButton) {
         deselectButton()
+        view.backgroundColor = UIColor(patternImage: sunshineBackround!)
         sender.isSelected = !sender.isSelected
         
         let dateFormatter = DateFormatter()
@@ -250,7 +251,7 @@ extension ViewController {
    
         override func loadView() {
             view = UIView()
-            view.backgroundColor = UIColor(patternImage: sunRiseBackground!)
+            view.backgroundColor = UIColor(patternImage: sunshineBackround!)
             
             setUpButton()
             
@@ -296,7 +297,7 @@ extension ViewController {
             dayLengthLabel = UILabel()
             dayLengthLabel.text = ""
             dayLengthLabel.textAlignment = .center
-            dayLengthLabel.textColor = .gray
+            dayLengthLabel.textColor = .darkGray
             dayLengthLabel.font = UIFont(name: "futura", size: 24)
             dayLengthLabel.translatesAutoresizingMaskIntoConstraints = false
             dayLengthView.addSubview(dayLengthLabel)
