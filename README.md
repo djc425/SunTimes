@@ -5,7 +5,7 @@ What was both fun and frustrating with this project was building my own UITablev
 
 
 
-
+![Preview](/sunRiseSet/Assets.xcassets/SimulatorScreenShot_1.png) ![Preview](/sunRiseSet/Assets.xcassets/SimulatorScreenShot_2.png) ![Preview](/sunRiseSet/Assets.xcassets/SimulatorScreenShot_3.png) ![Preview](/sunRiseSet/Assets.xcassets/SimulatorScreenShot_1.png)
 
 
 
