@@ -12,7 +12,7 @@ class SunCell : UITableViewCell {
     
     static let identifier = "SunCell"
     
-    var sunInfo : SunModel? {
+     var sunInfo : SunModel? {
         didSet {
             sunCellImage.image = sunInfo?.sunImage
             sunTimeLabel.text = sunInfo?.sunTime

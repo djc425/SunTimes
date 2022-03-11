@@ -26,8 +26,8 @@ class ViewController: UIViewController {
     
     // Datelabel
     let currentView = UIView()
-    var currentDateButton = UIButton()
-    var tomorrowDateButton = UIButton()
+//    var currentDateButton = UIButton()
+//    var tomorrowDateButton = UIButton()
     
     // Today/Tomorrow button stack
     var dateButtons = [UIButton]()

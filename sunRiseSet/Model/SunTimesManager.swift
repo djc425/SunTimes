@@ -89,7 +89,7 @@ struct SunTimesManager {
     }
 }
 
-struct SunImages{
+struct SunImages {
     
     func sunRiseImage() -> UIImage {
         let config = UIImage.SymbolConfiguration(paletteColors: [.orange, .yellow])

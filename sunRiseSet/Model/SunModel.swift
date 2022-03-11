@@ -14,7 +14,7 @@ struct SunModel {
     var sunImage : UIImage
 }
 
-struct SunModelURL{
+struct SunModelURL {
     var dateURL: String
     var lat: Double
     var long: Double
