@@ -33,6 +33,9 @@ class ViewController: UIViewController {
     var dateButtons = [UIButton]()
     let buttonStack = UIStackView()
     
+    // userLocation label
+    var currentUsersLocationLabel: UILabel!
+    
     // sunrise tableview
     let sunTableView = UITableView()
     
@@ -64,14 +67,25 @@ class ViewController: UIViewController {
         
     }
     // MARK: pressed button
-    @objc func userPressedLocationButton() {
+    @objc func userPressedLocationButton()  {
         sunModels.removeAll()
+        sunTableView.reloadData()
         locationLabel.isHidden = true
+        dateButtons[0].isSelected = true
+        dateButtons[1].isSelected = false
         if locationManager.authorizationStatus == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
         }
 
+    
     }
+    
+//    func getCoordinates() -> CLLocation {
+//        let lat = Double()
+//        let long = Double()
+//        
+//        
+//    }
     
     @objc func dateAdjust(_ sender: UIButton) {
         deselectButton()
@@ -116,6 +130,7 @@ extension ViewController: SunTimesManagerDelegate {
 
     func didFailWithError(error: Error) {
         print(error)
+        
     }
 }
 
@@ -200,6 +215,7 @@ extension ViewController: CLLocationManagerDelegate {
          
          sunURLS.append(location)
          print(sunURLS)
+         showLocation(lat: lat, long: long)
          
         sunTimesManager.sunTimesURLGenerator(lat: lat, long: long, date: today)
         //placeHolderData()
@@ -207,6 +223,36 @@ extension ViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
+        let alert =  UIAlertController(title: "An error has occured", message: error.localizedDescription, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        
+        present(alert, animated: true)
+    }
+    
+    func showLocation(lat: Double, long: Double) {
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(CLLocation(latitude: lat, longitude: long)) { [weak self] (placemarks, error) in
+            guard let self = self else { return }
+            
+            guard let placemarks = placemarks?.first else {
+                let alert = UIAlertController(title: "An error has occured", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                
+                self.present(alert, animated: true)
+                return
+            }
+            
+            let city = placemarks.locality ?? ""
+            let state = placemarks.administrativeArea ?? ""
+            
+            DispatchQueue.main.async {
+                self.currentUsersLocationLabel.text = "\(city), \(state)"
+            }
+        }
+        
     }
     
 }
@@ -278,6 +324,15 @@ extension ViewController {
             buttonStack.isHidden = true
             view.addSubview(buttonStack)
             
+            // MARK: current location label
+            currentUsersLocationLabel = UILabel()
+            currentUsersLocationLabel.text = ""
+            currentUsersLocationLabel.textColor = .gray
+            currentUsersLocationLabel.textAlignment = .center
+            currentUsersLocationLabel.font = UIFont(name: "futura", size: 18)
+            currentUsersLocationLabel.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(currentUsersLocationLabel)
+            
             //MARK: SunTable UITableView
             sunTableView.isScrollEnabled = false
             sunTableView.separatorStyle = .none
@@ -322,6 +377,11 @@ extension ViewController {
                 buttonStack.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5),
                 buttonStack.heightAnchor.constraint(equalToConstant: 50),
                 buttonStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
+                // MARK: current location label constraints
+                currentUsersLocationLabel.bottomAnchor.constraint(equalTo: sunTableView.topAnchor, constant: 20),
+                currentUsersLocationLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
                 
             //MARK: SunTable Constraints
                 sunTableView.topAnchor.constraint(equalTo: buttonStack.bottomAnchor, constant: 30),

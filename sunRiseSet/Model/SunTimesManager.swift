@@ -92,21 +92,38 @@ struct SunTimesManager {
 struct SunImages {
     
     func sunRiseImage() -> UIImage {
-        let config = UIImage.SymbolConfiguration(paletteColors: [.orange, .yellow])
+        if #available(iOS 15, *) {
+            let config = UIImage.SymbolConfiguration(paletteColors: [.orange, .yellow])
 
-        guard let sunRiseImage = UIImage(systemName: "sunrise.fill", withConfiguration: config) else {
-            fatalError("unable to get sunrise image")
+            guard let sunRiseImage = UIImage(systemName: "sunrise.fill", withConfiguration: config) else {
+                fatalError("unable to get sunrise image")
+            }
+            return sunRiseImage
+        } else {
+            guard let sunRiseImage = UIImage(systemName: "sunrise.fill") else {
+                fatalError("unable to get sunrise image")
+            }
+            return sunRiseImage
         }
-        return sunRiseImage
+        
     }
     
     func sunSetImage() -> UIImage {
-        let config = UIImage.SymbolConfiguration(paletteColors: [.yellow, .orange])
+        
+        if #available(iOS 15, *) {
+            let config = UIImage.SymbolConfiguration(paletteColors: [.yellow, .orange])
 
-        guard let sunSetImage = UIImage(systemName: "sunset.fill", withConfiguration: config) else {
-            fatalError("unable to get sunrise image")
+            guard let sunSetImage = UIImage(systemName: "sunset.fill", withConfiguration: config) else {
+                fatalError("unable to get sunrise image")
+            }
+            return sunSetImage
+        } else {
+            guard let sunSetImage = UIImage(systemName: "sunset.fill") else {
+                fatalError("unable tog et sunset image")
+            }
+            return sunSetImage
         }
-        return sunSetImage
+       
     }
    
 }
