@@ -144,7 +144,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return sunTableView.frame.height / 20
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -176,7 +176,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
   
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return sunTableView.frame.height / 3
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -275,6 +275,7 @@ extension ViewController {
         let dateButton = UIButton(type: .system)
         dateButton.setTitle(title, for: .normal)
         dateButton.titleLabel?.font = UIFont(name: "futura", size: 24)
+        dateButton.titleLabel?.adjustsFontSizeToFitWidth = true
         dateButton.addTarget(self, action: #selector(dateAdjust), for: .touchUpInside)
         return dateButton
     }
@@ -322,6 +323,7 @@ extension ViewController {
             dateButtons[0].isSelected = true
             buttonStack.translatesAutoresizingMaskIntoConstraints = false
             buttonStack.isHidden = true
+            buttonStack.spacing = 10
             view.addSubview(buttonStack)
             
             // MARK: current location label
@@ -338,6 +340,8 @@ extension ViewController {
             sunTableView.separatorStyle = .none
             sunTableView.backgroundColor = .clear
             sunTableView.translatesAutoresizingMaskIntoConstraints = false
+          // sunTableView.estimatedRowHeight = 75
+          //  sunTableView.rowHeight = UITableView.automaticDimension
             view.addSubview(sunTableView)
             
             //MARK: Day Length Label

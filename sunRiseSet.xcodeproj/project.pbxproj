@@ -316,6 +316,7 @@
 				DEVELOPMENT_TEAM = 64SV43AR2Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SunTimes;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Can we use your location while in use?\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -346,6 +347,7 @@
 				DEVELOPMENT_TEAM = 64SV43AR2Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SunTimes;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Can we use your location while in use?\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
