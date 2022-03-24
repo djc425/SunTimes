@@ -26,9 +26,7 @@ class ViewController: UIViewController {
     
     // Datelabel
     let currentView = UIView()
-//    var currentDateButton = UIButton()
-//    var tomorrowDateButton = UIButton()
-    
+
     // Today/Tomorrow button stack
     var dateButtons = [UIButton]()
     let buttonStack = UIStackView()
@@ -75,17 +73,12 @@ class ViewController: UIViewController {
         dateButtons[1].isSelected = false
         if locationManager.authorizationStatus == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
+        } else if locationManager.authorizationStatus == .denied {
+            locationManager.requestWhenInUseAuthorization()
         }
 
     
     }
-    
-//    func getCoordinates() -> CLLocation {
-//        let lat = Double()
-//        let long = Double()
-//        
-//        
-//    }
     
     @objc func dateAdjust(_ sender: UIButton) {
         deselectButton()

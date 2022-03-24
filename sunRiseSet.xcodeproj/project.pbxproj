@@ -317,7 +317,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SunTimes;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Can we use your location while in use?\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We'd like to use your location to help you find the local sunset or sunrise";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -328,7 +328,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = DChester.sunRiseSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -348,7 +348,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SunTimes;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"Can we use your location while in use?\"";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We'd like to use your location to help you find the local sunset or sunrise";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -359,7 +359,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.01;
 				PRODUCT_BUNDLE_IDENTIFIER = DChester.sunRiseSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
