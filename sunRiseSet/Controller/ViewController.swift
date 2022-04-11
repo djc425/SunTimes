@@ -76,7 +76,8 @@ class ViewController: UIViewController {
         } else if locationManager.authorizationStatus == .denied {
             locationManager.requestWhenInUseAuthorization()
         }
-
+            
+        locationManager.stopUpdatingLocation()
     
     }
     
@@ -203,7 +204,6 @@ extension ViewController: CLLocationManagerDelegate {
         let today = dateFormatter.string(from: date)
         print(today)
         
-  
         let location = SunModelURL(dateURL: today, lat: lat, long: long)
          
          sunURLS.append(location)
@@ -242,7 +242,13 @@ extension ViewController: CLLocationManagerDelegate {
             let state = placemarks.administrativeArea ?? ""
             
             DispatchQueue.main.async {
-                self.currentUsersLocationLabel.text = "\(city), \(state)"
+               
+                if city == "" {
+                    self.currentUsersLocationLabel.text = "\(state)"
+                } else  {
+                    self.currentUsersLocationLabel.text = "\(city), \(state)"
+                }
+                
             }
         }
         
