@@ -86,6 +86,7 @@
 			children = (
 				6E672A6B27A5D15B00AC25B2 /* AppDelegate.swift */,
 				6E672A6D27A5D15B00AC25B2 /* SceneDelegate.swift */,
+				6ED62D1B2877B3CC004EC9D4 /* Views */,
 				6E3D2C0727A9DCFD00EDDBBA /* Controller */,
 				6E3D2C0627A9DCE300EDDBBA /* Model */,
 				6E672A7427A5D15C00AC25B2 /* Assets.xcassets */,
@@ -93,6 +94,13 @@
 				6E672A7927A5D15C00AC25B2 /* Info.plist */,
 			);
 			path = sunRiseSet;
+			sourceTree = "<group>";
+		};
+		6ED62D1B2877B3CC004EC9D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

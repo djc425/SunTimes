@@ -78,6 +78,7 @@ class ViewController: UIViewController {
         }
             
         locationManager.stopUpdatingLocation()
+        
     
     }
     
