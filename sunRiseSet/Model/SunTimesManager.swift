@@ -29,7 +29,7 @@ struct SunTimesManager {
         let urlString = "\(sunTimeURL)&lat=\(lat)&lng=\(long)&date=\(date)&formatted=0"
         print(urlString)
         getSunTimes(with: urlString)
-       
+       print("suntimes url generator")
     }
     
     func getSunTimes(with url: String){
@@ -79,7 +79,7 @@ struct SunTimesManager {
             allSunData.append(sunRiseData)
             allSunData.append(sunSetData)
             
-           // print(allSunData)
+           print(allSunData)
             
             return allSunData
         } catch {

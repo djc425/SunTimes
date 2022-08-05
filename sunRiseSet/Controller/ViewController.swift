@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var sunModels = [SunModel]()
     var sunURLS = [SunModelURL]()
     var sunTimesManager = SunTimesManager()
+
     
     // location button
    // let buttonRect = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
         //location manager delegate and auth request
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
-      
+
         // registering custom cell
         sunTableView.register(SunCell.self, forCellReuseIdentifier: SunCell.identifier)
 
@@ -73,13 +74,14 @@ class ViewController: UIViewController {
         dateButtons[1].isSelected = false
         if locationManager.authorizationStatus == .authorizedWhenInUse {
             locationManager.startUpdatingLocation()
+            print("updating location")
         } else if locationManager.authorizationStatus == .denied {
             locationManager.requestWhenInUseAuthorization()
         }
+
             
         locationManager.stopUpdatingLocation()
-        
-    
+
     }
     
     @objc func dateAdjust(_ sender: UIButton) {
@@ -164,6 +166,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         bgView.backgroundColor = UIColor(white: 1, alpha: 0.2)
         bgView.layer.opacity = 0.2
         cell.selectedBackgroundView = bgView
+       // print("Cell created")
         
         return cell
     }
@@ -192,8 +195,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 // MARK: Location Manager Methods
 extension ViewController: CLLocationManagerDelegate {
-    
+
      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+         print("is this getting called")
         guard let userLocation = locations.first else { return }
         print(userLocation.coordinate)
         locationManager.stopUpdatingLocation()
@@ -212,6 +216,7 @@ extension ViewController: CLLocationManagerDelegate {
          showLocation(lat: lat, long: long)
          
         sunTimesManager.sunTimesURLGenerator(lat: lat, long: long, date: today)
+         print("intial suntime")
         //placeHolderData()
     }
     
@@ -322,7 +327,7 @@ extension ViewController {
             //MARK: dateButtons / buttonstack settings
             dateButtons[0].isSelected = true
             buttonStack.translatesAutoresizingMaskIntoConstraints = false
-            buttonStack.isHidden = true
+           buttonStack.isHidden = true
             buttonStack.spacing = 10
             view.addSubview(buttonStack)
             
