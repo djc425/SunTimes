@@ -16,7 +16,7 @@ protocol SunTimesManagerDelegate {
 }
 
 struct SunTimesManager {
-    let sunTimeURL = "https://api.sunrise-sunset.org/json?"
+    let sunTimeURL = "http://api.sunrise-sunset.org/json?"
     
     var delegate: SunTimesManagerDelegate?
     
@@ -39,6 +39,7 @@ struct SunTimesManager {
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
+                    print("Getting an error boss")
                 }
                 if let safeData = data {
                     if let allSunData = self.parseJson(sunTimesData: safeData) {

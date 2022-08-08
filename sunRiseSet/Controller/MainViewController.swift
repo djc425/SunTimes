@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     var sunModels = [SunModel]()
@@ -59,6 +59,7 @@ class ViewController: UIViewController {
         //location manager delegate and auth request
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
 
         // registering custom cell
         sunTableView.register(SunCell.self, forCellReuseIdentifier: SunCell.identifier)
@@ -72,15 +73,16 @@ class ViewController: UIViewController {
         locationLabel.isHidden = true
         dateButtons[0].isSelected = true
         dateButtons[1].isSelected = false
-        if locationManager.authorizationStatus == .authorizedWhenInUse {
-            locationManager.startUpdatingLocation()
+
+
+        if locationManager.authorizationStatus == .authorizedWhenInUse  {
             print("updating location")
+            locationManager.startUpdatingLocation()
         } else if locationManager.authorizationStatus == .denied {
             locationManager.requestWhenInUseAuthorization()
+            print("no location")
         }
 
-            
-        locationManager.stopUpdatingLocation()
 
     }
     
@@ -111,7 +113,7 @@ class ViewController: UIViewController {
 
 
 // MARK: suntimes Manager delegate
-extension ViewController: SunTimesManagerDelegate {
+extension MainViewController: SunTimesManagerDelegate {
     func didUpdateTimes(sunManager: SunTimesManager, sunTimes: [SunModel]) {
         
         DispatchQueue.main.async {
@@ -133,7 +135,7 @@ extension ViewController: SunTimesManagerDelegate {
 
 
 // MARK: TableView DataSource & delegate
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -194,13 +196,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 // MARK: Location Manager Methods
-extension ViewController: CLLocationManagerDelegate {
+extension MainViewController: CLLocationManagerDelegate {
+
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let first = locations.first else { return }
+//
+//        print("\(first.coordinate.latitude) | \(first.coordinate.longitude)")
+//    }
 
      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
          print("is this getting called")
-        guard let userLocation = locations.first else { return }
+
+         guard let userLocation = locations.first else { print("no location returned"); return }
         print(userLocation.coordinate)
-        locationManager.stopUpdatingLocation()
+
         let lat = userLocation.coordinate.latitude
         let long = userLocation.coordinate.longitude
         let date = Date()
@@ -208,16 +217,17 @@ extension ViewController: CLLocationManagerDelegate {
         dateFormatter.dateFormat = "y-MM-dd"
         let today = dateFormatter.string(from: date)
         print(today)
-        
+
         let location = SunModelURL(dateURL: today, lat: lat, long: long)
-         
+
          sunURLS.append(location)
          print(sunURLS)
          showLocation(lat: lat, long: long)
-         
+
         sunTimesManager.sunTimesURLGenerator(lat: lat, long: long, date: today)
          print("intial suntime")
         //placeHolderData()
+         locationManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -273,7 +283,7 @@ extension Date {
 }
 
 // MARK: LoadView + button creation Extension
-extension ViewController {
+extension MainViewController {
     
     // Create our buttons
     func createButtons(with title: String) -> UIButton {

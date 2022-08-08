@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E19F41E28A038F200D1535A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E19F41D28A038F200D1535A /* LocationManager.swift */; };
 		6E3D2C0927A9DD5D00EDDBBA /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D2C0827A9DD5D00EDDBBA /* TimeConverter.swift */; };
 		6E3D59D527A62F6A009E636B /* SunCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D59D427A62F6A009E636B /* SunCell.swift */; };
 		6E3D59D727A65545009E636B /* SunModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3D59D627A65545009E636B /* SunModel.swift */; };
 		6E50024C27A5F2E40014D035 /* SunData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E50024B27A5F2E40014D035 /* SunData.swift */; };
 		6E672A6C27A5D15B00AC25B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E672A6B27A5D15B00AC25B2 /* AppDelegate.swift */; };
 		6E672A6E27A5D15B00AC25B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E672A6D27A5D15B00AC25B2 /* SceneDelegate.swift */; };
-		6E672A7027A5D15B00AC25B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E672A6F27A5D15B00AC25B2 /* ViewController.swift */; };
+		6E672A7027A5D15B00AC25B2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E672A6F27A5D15B00AC25B2 /* MainViewController.swift */; };
 		6E672A7527A5D15C00AC25B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E672A7427A5D15C00AC25B2 /* Assets.xcassets */; };
 		6E672A7827A5D15C00AC25B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E672A7627A5D15C00AC25B2 /* LaunchScreen.storyboard */; };
 		6E672A8027A5F22500AC25B2 /* SunTimesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E672A7F27A5F22500AC25B2 /* SunTimesManager.swift */; };
-		6ED62D1D2877B6E5004EC9D4 /* AppButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED62D1C2877B6E5004EC9D4 /* AppButtons.swift */; };
-		6ED62D1F2877B8AF004EC9D4 /* AppLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED62D1E2877B8AF004EC9D4 /* AppLabels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E19F41D28A038F200D1535A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		6E3D2C0827A9DD5D00EDDBBA /* TimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
 		6E3D59D427A62F6A009E636B /* SunCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCell.swift; sourceTree = "<group>"; };
 		6E3D59D627A65545009E636B /* SunModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunModel.swift; sourceTree = "<group>"; };
@@ -29,13 +29,11 @@
 		6E672A6827A5D15B00AC25B2 /* sunRiseSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sunRiseSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E672A6B27A5D15B00AC25B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E672A6D27A5D15B00AC25B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6E672A6F27A5D15B00AC25B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6E672A6F27A5D15B00AC25B2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6E672A7427A5D15C00AC25B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E672A7727A5D15C00AC25B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E672A7927A5D15C00AC25B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E672A7F27A5F22500AC25B2 /* SunTimesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunTimesManager.swift; sourceTree = "<group>"; };
-		6ED62D1C2877B6E5004EC9D4 /* AppButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButtons.swift; sourceTree = "<group>"; };
-		6ED62D1E2877B8AF004EC9D4 /* AppLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +54,7 @@
 				6E3D2C0827A9DD5D00EDDBBA /* TimeConverter.swift */,
 				6E50024B27A5F2E40014D035 /* SunData.swift */,
 				6E3D59D627A65545009E636B /* SunModel.swift */,
+				6E19F41D28A038F200D1535A /* LocationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -63,8 +62,7 @@
 		6E3D2C0727A9DCFD00EDDBBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6E672A6F27A5D15B00AC25B2 /* ViewController.swift */,
-				6E3D59D427A62F6A009E636B /* SunCell.swift */,
+				6E672A6F27A5D15B00AC25B2 /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -103,8 +101,7 @@
 		6ED62D1B2877B3CC004EC9D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6ED62D1C2877B6E5004EC9D4 /* AppButtons.swift */,
-				6ED62D1E2877B8AF004EC9D4 /* AppLabels.swift */,
+				6E3D59D427A62F6A009E636B /* SunCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,9 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E672A7027A5D15B00AC25B2 /* ViewController.swift in Sources */,
-				6ED62D1D2877B6E5004EC9D4 /* AppButtons.swift in Sources */,
-				6ED62D1F2877B8AF004EC9D4 /* AppLabels.swift in Sources */,
+				6E672A7027A5D15B00AC25B2 /* MainViewController.swift in Sources */,
 				6E672A6C27A5D15B00AC25B2 /* AppDelegate.swift in Sources */,
 				6E3D59D527A62F6A009E636B /* SunCell.swift in Sources */,
 				6E3D59D727A65545009E636B /* SunModel.swift in Sources */,
@@ -189,6 +184,7 @@
 				6E3D2C0927A9DD5D00EDDBBA /* TimeConverter.swift in Sources */,
 				6E672A8027A5F22500AC25B2 /* SunTimesManager.swift in Sources */,
 				6E50024C27A5F2E40014D035 /* SunData.swift in Sources */,
+				6E19F41E28A038F200D1535A /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -312,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -333,7 +329,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SunTimes;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We'd like to use your location to help you find the local sunset or sunrise";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow us to use your location for accurate SunTimes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to use your location for accurate SunTimes";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -364,7 +361,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SunTimes;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We'd like to use your location to help you find the local sunset or sunrise";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow us to use your location for accurate SunTimes";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to use your location for accurate SunTimes";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
