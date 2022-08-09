@@ -6,11 +6,8 @@ I wanted to create a project that allowed users to quickly check their location,
 Some fun challenges in this project where not only building those custom cells, but also learning about date and time formatting based on what was received from the API call. I parsed the data from the sunset and sunrise times API which can be found at the following URL https://sunrise-sunset.org/api. 
 
 
+![Simulator Screen Shot_MainScreen](https://user-images.githubusercontent.com/74942351/183677497-5623e15b-42d1-43a6-89b7-a0342c6a89c0.png)
 
-![Simulator Screen Shot_MainScreen](https://user-images.githubusercontent.com/74942351/183676967-f2ab42cd-c71b-452a-ba42-e8de7b0fc66c.png)
-![Simulator Screen Shot_MoonRiseSelected](https://user-images.githubusercontent.com/74942351/183677045-a4d4e997-0963-429c-b1cd-737be2edb70d.png)
-![Simulator Screen Shot_SunRiseSelected](https://user-images.githubusercontent.com/74942351/183677055-4a16ddeb-eee3-4caf-868d-20cd2a583902.png)
-![Simulator Screen Shot_SunSetSelected](https://user-images.githubusercontent.com/74942351/183677070-d71bc20a-b768-491f-b0bc-7f6cbeb1a6af.png)
 
 
 
