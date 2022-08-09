@@ -10,7 +10,7 @@ import UIKit
 
 class SunCell : UITableViewCell {
     
-    static let identifier = "SunCell"
+    static let identifier = K.shared.cellIdentifer
 
     let mainView = MainView()
     
@@ -40,7 +40,7 @@ class SunCell : UITableViewCell {
         let lbl = UILabel()
         lbl.textColor = .darkGray
         lbl.textAlignment = .left
-        lbl.font = UIFont(name: "futura", size: 24)
+        lbl.font = UIFont(name: K.shared.fontFutura, size: 24)
         return lbl
     }()
     

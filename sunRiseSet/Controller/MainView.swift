@@ -9,8 +9,8 @@ import UIKit
 
 class MainView: UIView {
 
-    let sunshineBackround = UIImage(named: "sunshine.png", in: Bundle.main, with: nil)
-    let moonshineBackground = UIImage(named: "dusk.png", in: Bundle.main, with: nil)
+    let sunshineBackround = UIImage(named: K.shared.sunshineBackground, in: Bundle.main, with: nil)
+    let moonshineBackground = UIImage(named: K.shared.moonshineBackground, in: Bundle.main, with: nil)
 
     var sunModels = [SunModel]()
     //var sunURLS = [SunModelURL]()
@@ -33,7 +33,7 @@ class MainView: UIView {
         let config = UIImage.SymbolConfiguration(pointSize: 28)
         locationButton.clipsToBounds = true
         locationButton.contentMode = .scaleAspectFit
-        locationButton.setImage(UIImage(systemName: "location.circle.fill", withConfiguration: config), for: .normal)
+        locationButton.setImage(UIImage(systemName: K.shared.locationButtonImage, withConfiguration: config), for: .normal)
         locationButton.translatesAutoresizingMaskIntoConstraints = false
         return locationButton
     }()
@@ -43,7 +43,7 @@ class MainView: UIView {
         locationLabel.text = K.shared.locationLabel
         locationLabel.textColor = .gray
         locationLabel.textAlignment = .center
-        locationLabel.font = UIFont(name: "futura", size: 18)
+        locationLabel.font = UIFont(name: K.shared.fontFutura, size: 18)
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
         return locationLabel
     }()
@@ -53,7 +53,7 @@ class MainView: UIView {
         currentUsersLocationLabel.text = ""
         currentUsersLocationLabel.textColor = .gray
         currentUsersLocationLabel.textAlignment = .center
-        currentUsersLocationLabel.font = UIFont(name: "futura", size: 18)
+        currentUsersLocationLabel.font = UIFont(name: K.shared.fontFutura, size: 18)
         currentUsersLocationLabel.translatesAutoresizingMaskIntoConstraints = false
         return currentUsersLocationLabel
     }()
@@ -80,7 +80,7 @@ class MainView: UIView {
         dayLengthTitle.text = K.shared.dayLength
         dayLengthTitle.textAlignment = .left
         dayLengthTitle.textColor = .gray
-        dayLengthTitle.font = UIFont(name: "futura", size: 24)
+        dayLengthTitle.font = UIFont(name: K.shared.fontFutura, size: 24)
         dayLengthTitle.translatesAutoresizingMaskIntoConstraints = false
         return dayLengthTitle
     }()
@@ -90,7 +90,7 @@ class MainView: UIView {
         dayLengthLabel.text = ""
         dayLengthLabel.textAlignment = .center
         dayLengthLabel.textColor = .darkGray
-        dayLengthLabel.font = UIFont(name: "futura", size: 24)
+        dayLengthLabel.font = UIFont(name: K.shared.fontFutura, size: 24)
         dayLengthLabel.translatesAutoresizingMaskIntoConstraints = false
         return dayLengthLabel
     }()
@@ -108,7 +108,7 @@ class MainView: UIView {
     func createButtons(with title: String) -> UIButton {
         let dateButton = UIButton(type: .system)
         dateButton.setTitle(title, for: .normal)
-        dateButton.titleLabel?.font = UIFont(name: "futura", size: 22)
+        dateButton.titleLabel?.font = UIFont(name: K.shared.fontFutura, size: 22)
         dateButton.titleLabel?.adjustsFontSizeToFitWidth = true
         dateButton.addTarget(self, action: #selector(dateAdjust), for: .touchUpInside)
         return dateButton
@@ -120,15 +120,15 @@ class MainView: UIView {
         self.backgroundColor = UIColor(patternImage: sunshineBackround!)
         sender.isSelected = !sender.isSelected
 
-        if sender.currentTitle == "SunTimes" {
+        if sender.currentTitle == K.shared.sunTimesButtonTitle {
             self.backgroundColor = UIColor(patternImage: sunshineBackround!)
-        } else if sender.currentTitle == "MoonTimes"{
+        } else if sender.currentTitle == K.shared.moonTimesButtonTitle {
             self.backgroundColor = UIColor(patternImage: moonshineBackground!)
         }
     }
 
     func setUpButton() {
-        let dateArray =  ["SunTimes", "MoonTimes"]
+        let dateArray =  [K.shared.sunTimesButtonTitle, K.shared.moonTimesButtonTitle]
 
         for dateTitle in dateArray {
             let button = createButtons(with: dateTitle)

@@ -16,7 +16,7 @@ protocol SunTimesManagerDelegate {
 
 struct SunTimesManager {
 
-    let sunTimeURL = "https://api.ipgeolocation.io/astronomy?apiKey=\(K.shared.apiKey)"
+    let sunTimeURL = "https://api.ipgeolocation.io/astronomy?apiKey=\(APIKey.shared.apiKey)"
     
     var delegate: SunTimesManagerDelegate?
     
@@ -90,12 +90,12 @@ struct SunImages {
         if #available(iOS 15, *) {
             let config = UIImage.SymbolConfiguration(paletteColors: [.orange, .yellow])
 
-            guard let sunRiseImage = UIImage(systemName: "sunrise.fill", withConfiguration: config) else {
+            guard let sunRiseImage = UIImage(systemName: K.shared.sunRiseImage, withConfiguration: config) else {
                 fatalError("unable to get sunrise image")
             }
             return sunRiseImage
         } else {
-            guard let sunRiseImage = UIImage(systemName: "sunrise.fill") else {
+            guard let sunRiseImage = UIImage(systemName: K.shared.sunRiseImage) else {
                 fatalError("unable to get sunrise image")
             }
             return sunRiseImage
@@ -108,12 +108,12 @@ struct SunImages {
         if #available(iOS 15, *) {
             let config = UIImage.SymbolConfiguration(paletteColors: [.yellow, .orange])
 
-            guard let sunSetImage = UIImage(systemName: "sunset.fill", withConfiguration: config) else {
+            guard let sunSetImage = UIImage(systemName: K.shared.sunSetImage, withConfiguration: config) else {
                 fatalError("unable to get sunrise image")
             }
             return sunSetImage
         } else {
-            guard let sunSetImage = UIImage(systemName: "sunset.fill") else {
+            guard let sunSetImage = UIImage(systemName: K.shared.sunSetImage) else {
                 fatalError("unable tog et sunset image")
             }
             return sunSetImage
@@ -124,12 +124,12 @@ struct SunImages {
         if #available(iOS 15, *) {
             let config = UIImage.SymbolConfiguration(paletteColors: [.blue, .purple])
 
-            guard let sunSetImage = UIImage(systemName: "moon.stars.fill", withConfiguration: config) else {
+            guard let sunSetImage = UIImage(systemName: K.shared.moonRiseImage, withConfiguration: config) else {
                 fatalError("unable to get sunrise image")
             }
             return sunSetImage
         } else {
-            guard let sunSetImage = UIImage(systemName: "moon.stars.fill") else {
+            guard let sunSetImage = UIImage(systemName: K.shared.moonRiseImage) else {
                 fatalError("unable to get sunset image")
             }
             return sunSetImage
@@ -140,12 +140,12 @@ struct SunImages {
         if #available(iOS 15, *) {
             let config = UIImage.SymbolConfiguration(paletteColors: [.purple, .blue])
 
-            guard let sunSetImage = UIImage(systemName: "moon.zzz.fill", withConfiguration: config) else {
+            guard let sunSetImage = UIImage(systemName: K.shared.moonSetImage, withConfiguration: config) else {
                 fatalError("unable to get sunrise image")
             }
             return sunSetImage
         } else {
-            guard let sunSetImage = UIImage(systemName: "moon.zzz.fill") else {
+            guard let sunSetImage = UIImage(systemName: K.shared.moonSetImage) else {
                 fatalError("unable tog et sunset image")
             }
             return sunSetImage
