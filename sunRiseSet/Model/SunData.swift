@@ -8,11 +8,12 @@
 import Foundation
 
 struct SunData: Decodable {
-    let results: Results
-}
-
-struct Results: Codable {
+    let date: String
     let sunrise: String
     let sunset: String
-    let day_length: Int
+    let day_length: String
+    let moonrise: String
+    let moonset: String
 }
+
+

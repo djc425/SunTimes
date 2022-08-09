@@ -8,28 +8,26 @@
 import Foundation
 
 struct TimeConverter {
-    
-    func convertToUsersTimeZone(time: String) -> String? {
+
+    // TODO: We may not need this?
+    func convertToUsersTimeZone(time: String) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        formatter.dateFormat = "H:mm"
         if let date = formatter.date(from: time) {
-            print(date)
             let displayFormatter = DateFormatter()
             displayFormatter.dateFormat = "h:mm a"
-            print(displayFormatter.string(from: date))
             return displayFormatter.string(from: date)
         } else {
-            print("nodate")
+            return "\(time)"
         }
-        return nil
+
     }
-    
-    func convertDayLengthToHours(dayLength: Int) -> String? {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .short
-        print(formatter.string(from: TimeInterval(dayLength))!)
-        let dayLengthFormatted = formatter.string(from: TimeInterval(dayLength))!
+
+    // TODO: Convert from the string we're given to hours and minutes
+    func convertDayLengthToHours(dayLength: String) -> String? {
+        var dayLengthFormatted = dayLength.replacingOccurrences(of: ":", with: " hours ")
+        dayLengthFormatted.append(contentsOf: " minutes")
+
         return dayLengthFormatted
     }
     
