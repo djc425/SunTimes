@@ -11,12 +11,21 @@ import UIKit
 class SunCell : UITableViewCell {
     
     static let identifier = "SunCell"
+
+    let mainView = MainView()
     
-     var sunInfo : SunModel? {
+     var sunInfo: SunModel? {
         didSet {
-            sunCellImage.image = sunInfo?.sunImage
-            sunTimeLabel.text = sunInfo?.sunTime
+            sunCellImage.image = sunInfo?.image
+            sunTimeLabel.text = sunInfo?.time
+            }
         }
+
+    var moonInfo: MoonModel? {
+        didSet {
+            sunCellImage.image = moonInfo?.image
+            sunTimeLabel.text = moonInfo?.time
+            }
     }
 
     private let sunCellImage : UIImageView = {
@@ -24,8 +33,6 @@ class SunCell : UITableViewCell {
         sunImgView.contentMode = .scaleAspectFit
         sunImgView.clipsToBounds = true
         sunImgView.translatesAutoresizingMaskIntoConstraints = false
-       // sunImgView.tintColor = .gray
-      //  sunImgView.layer.opacity = 0.6
         return sunImgView
     }()
     
@@ -60,8 +67,6 @@ class SunCell : UITableViewCell {
             self.layer.opacity = 0.2
         }
     }
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

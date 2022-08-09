@@ -8,14 +8,25 @@
 import Foundation
 import UIKit
 
-struct SunModel {
-    var sunTime : String
-    var dayLength: String
-    var sunImage : UIImage
+struct CellModel {
+    var sun: [SunModel]
+    var moon: [MoonModel]
 }
 
-struct SunModelURL {
-    var dateURL: String
-    var lat: Double
-    var long: Double
+struct SunModel {
+    var time: String
+    var dayLength: String
+    var image: UIImage
 }
+
+struct MoonModel {
+    var time : String
+    var dayLength: String
+    var image: UIImage
+}
+
+//struct SunModelURL {
+//    var dateURL: String
+//    var lat: Double
+//    var long: Double
+//}
