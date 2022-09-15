@@ -73,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				6E672A6F27A5D15B00AC25B2 /* MainViewController.swift */,
-				6ECE3BC328A16D7700703B54 /* MainView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -114,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				6E3D59D427A62F6A009E636B /* SunCell.swift */,
+				6ECE3BC328A16D7700703B54 /* MainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64SV43AR2Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
@@ -357,7 +357,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = DChester.sunRiseSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -372,7 +372,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64SV43AR2Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = sunRiseSet/Info.plist;
@@ -389,7 +389,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = DChester.sunRiseSet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

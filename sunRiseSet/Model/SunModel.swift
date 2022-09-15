@@ -25,8 +25,3 @@ struct MoonModel {
     var image: UIImage
 }
 
-//struct SunModelURL {
-//    var dateURL: String
-//    var lat: Double
-//    var long: Double
-//}

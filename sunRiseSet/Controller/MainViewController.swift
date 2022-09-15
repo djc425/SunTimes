@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     
     var sunModels = [SunModel]()
     var moonModels = [MoonModel]()
-   // var sunURLS = [SunModelURL]()
 
     var cellModel: CellModel!
     var sunTimesManager = SunTimesManager()
@@ -36,8 +35,6 @@ class MainViewController: UIViewController {
 
         // registering custom cell
         mainView.sunTableView.register(SunCell.self, forCellReuseIdentifier: SunCell.identifier)
-
-        
     }
     // MARK: pressed button
     @objc func userPressedLocationButton()  {
@@ -107,9 +104,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
 
-//        let currentSunInfo = cellModel[indexPath.section]
-//        cell.sunInfo = currentSunInfo
-
         if mainView.dateButtons[0].isSelected == true {
             let currentSunInfo = sunModels[indexPath.section]
             cell.sunInfo = currentSunInfo
@@ -156,19 +150,12 @@ extension MainViewController: CLLocationManagerDelegate {
 
      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
-         guard let userLocation = locations.first else { print("no location returned"); return }
+        guard let userLocation = locations.first else { print("no location returned"); return }
         print(userLocation.coordinate)
 
         let lat = userLocation.coordinate.latitude
         let long = userLocation.coordinate.longitude
-//        let date = Date()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "y-MM-dd"
-//        let today = dateFormatter.string(from: date)
 
-        //let location = SunModelURL(dateURL: today, lat: lat, long: long)
-
-        // sunURLS.append(location)
          showLocation(lat: lat, long: long)
 
          sunTimesManager.sunTimesURLGenerator(lat: lat, long: long)
@@ -202,7 +189,6 @@ extension MainViewController: CLLocationManagerDelegate {
             
             let city = placemarks.locality ?? ""
             let state = placemarks.administrativeArea ?? ""
-          //  let country = placemarks.country ?? ""
 
             DispatchQueue.main.async {
 
@@ -216,18 +202,9 @@ extension MainViewController: CLLocationManagerDelegate {
     }
 }
 
-//// MARK: Date Extension
-//extension Date {
-//   static var tomorrow:  Date { return Date().dayAfter }
-//   static var today: Date {return Date()}
-//   var dayAfter: Date {
-//      return Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-//   }
-//}
-
 // MARK: LoadView + button creation Extension
 extension MainViewController {
-
+    
         override func loadView() {
             view = UIView()
 
