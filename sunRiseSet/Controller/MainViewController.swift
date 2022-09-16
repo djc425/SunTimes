@@ -69,8 +69,9 @@ extension MainViewController: SunTimesManagerDelegate {
         }
     }
 
-    func didFailWithError(error: Error) {
-        let alert = UIAlertController(title: "An error has occured", message: error.localizedDescription, preferredStyle: .alert)
+    
+    func didFailWithError(error: SunTimesError) {
+        let alert = UIAlertController(title: "An error has occured", message: error.rawValue, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
         self.present(alert, animated: true)
     }
@@ -79,8 +80,7 @@ extension MainViewController: SunTimesManagerDelegate {
 
 // MARK: TableView DataSource & delegate
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -104,6 +104,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
 
+        // depending on which button is selected we switch the model being sent to the cell
         if mainView.dateButtons[0].isSelected == true {
             let currentSunInfo = sunModels[indexPath.section]
             cell.sunInfo = currentSunInfo

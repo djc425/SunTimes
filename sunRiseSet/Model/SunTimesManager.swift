@@ -12,7 +12,7 @@ protocol SunTimesManagerDelegate {
     // use the below delegate method to pass our CellModel from the getSunTimes method over to the MainVC
     func didUpdateTimes(sunTimesManager: SunTimesManager, sunTimesCellModel: CellModel)
     
-    func didFailWithError(error: Error)
+    func didFailWithError(error: SunTimesError)
 }
 
 //MARK: SunTimesErrors
