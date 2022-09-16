@@ -112,7 +112,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             cell.moonInfo = currentSunInfo
         }
 
-
         cell.backgroundColor = .clear
         let bgView = UIView()
         bgView.backgroundColor = UIColor(white: 1, alpha: 0.2)
@@ -163,11 +162,10 @@ extension MainViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
         let alert =  UIAlertController(title: "An error has occured", message: "Could not get location", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
-        
+
         present(alert, animated: true)
     }
     
@@ -204,7 +202,7 @@ extension MainViewController: CLLocationManagerDelegate {
 
 // MARK: LoadView + button creation Extension
 extension MainViewController {
-    
+
         override func loadView() {
             view = UIView()
 
