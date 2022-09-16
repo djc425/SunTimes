@@ -11,7 +11,7 @@ struct SunData: Decodable {
     let date: String
     let sunrise: String
     let sunset: String
-    let day_length: String
+    let dayLength: String
     let moonrise: String
     let moonset: String
 }

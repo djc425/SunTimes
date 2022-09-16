@@ -57,14 +57,14 @@ class MainViewController: UIViewController {
 
 // MARK: suntimes Manager delegate
 extension MainViewController: SunTimesManagerDelegate {
-    func didUpdateTimes(sunManager: SunTimesManager, sunTimes: CellModel) {
+    func didUpdateTimes(sunTimesManager: SunTimesManager, sunTimesCellModel: CellModel) {
         
         DispatchQueue.main.async {
             self.mainView.buttonStack.isHidden = false
             self.mainView.dayLengthView.isHidden = false
-            self.sunModels.append(contentsOf: sunTimes.sun)
-            self.moonModels.append(contentsOf: sunTimes.moon)
-            self.mainView.dayLengthLabel.text = sunTimes.dayLength
+            self.sunModels.append(contentsOf: sunTimesCellModel.sun)
+            self.moonModels.append(contentsOf: sunTimesCellModel.moon)
+            self.mainView.dayLengthLabel.text = sunTimesCellModel.dayLength
             self.mainView.sunTableView.reloadData()
         }
     }
@@ -177,9 +177,7 @@ extension MainViewController: CLLocationManagerDelegate {
 
             guard let placemarks = placemarks?.first else {
                 let alert = UIAlertController(title: "An error has occured", message: error?.localizedDescription, preferredStyle: .alert)
-                
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                
                 self.present(alert, animated: true)
                 return
             }
