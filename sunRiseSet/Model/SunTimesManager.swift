@@ -37,10 +37,9 @@ struct SunTimesManager {
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
-
                 }
                 if let safeData = data {
-                    if let allSunData = self.parseJson(sunTimesData: safeData) {
+                    if let allSunData = self.decodeSunTimeData(sunTimesData: safeData) {
                        self.delegate?.didUpdateTimes(sunManager: self, sunTimes: allSunData)
                     }
                 }
@@ -50,7 +49,7 @@ struct SunTimesManager {
     }
    
     
-    func parseJson(sunTimesData: Data) -> CellModel? {
+    func decodeSunTimeData(sunTimesData: Data) -> CellModel? {
         let decoder = JSONDecoder()
         var allSunData = [SunModel]()
         var allMoonData = [MoonModel]()
@@ -64,17 +63,17 @@ struct SunTimesManager {
 
             let dayLength = sunTimesConverter.convertDayLengthToHours(dayLength: decoder.day_length) ?? "\(decoder.day_length)"
 
-            let sunRiseData = SunModel(time: sunRiseTime, dayLength: dayLength, image: sunImages.sunRiseImage())
-            let sunSetData = SunModel(time: sunSetTime, dayLength: dayLength, image: sunImages.sunSetImage())
-            let moonRiseData = MoonModel(time: moonRiseTime, dayLength: dayLength, image: sunImages.moonRiseImage())
-            let moonSetData = MoonModel(time: moonSetTime, dayLength: dayLength, image: sunImages.moonSetImage())
+            let sunRiseData = SunModel(time: sunRiseTime, image: sunImages.sunRiseImage())
+            let sunSetData = SunModel(time: sunSetTime,image: sunImages.sunSetImage())
+            let moonRiseData = MoonModel(time: moonRiseTime, image: sunImages.moonRiseImage())
+            let moonSetData = MoonModel(time: moonSetTime, image: sunImages.moonSetImage())
 
             allSunData.append(sunRiseData)
             allSunData.append(sunSetData)
             allMoonData.append(moonRiseData)
             allMoonData.append(moonSetData)
 
-            let allData = CellModel(sun: allSunData, moon: allMoonData)
+            let allData = CellModel(sun: allSunData, moon: allMoonData, dayLength: dayLength)
 
             return allData
         } catch {

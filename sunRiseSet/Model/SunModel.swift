@@ -11,17 +11,16 @@ import UIKit
 struct CellModel {
     var sun: [SunModel]
     var moon: [MoonModel]
+    var dayLength: String
 }
 
 struct SunModel {
     var time: String
-    var dayLength: String
     var image: UIImage
 }
 
 struct MoonModel {
     var time : String
-    var dayLength: String
     var image: UIImage
 }
 

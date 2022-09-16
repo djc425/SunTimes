@@ -64,7 +64,7 @@ extension MainViewController: SunTimesManagerDelegate {
             self.mainView.dayLengthView.isHidden = false
             self.sunModels.append(contentsOf: sunTimes.sun)
             self.moonModels.append(contentsOf: sunTimes.moon)
-            self.mainView.dayLengthLabel.text = self.sunModels.first?.dayLength
+            self.mainView.dayLengthLabel.text = sunTimes.dayLength
             self.mainView.sunTableView.reloadData()
         }
     }
