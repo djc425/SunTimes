@@ -15,6 +15,7 @@ protocol SunTimesManagerDelegate {
     func didFailWithError(error: Error)
 }
 
+//MARK: SunTimesErrors
 enum SunTimesError: String, Error {
     case invalidURL = "URL is invaild, unable to make API Call"
     case unableToComplere = "Unable to complete request, please check internet connection"
@@ -32,7 +33,8 @@ struct SunTimesManager {
     func sunTimesURLGenerator(lat: Double, long: Double){
         let urlString = "\(sunTimeURL)&lat=\(lat)&long=\(long)"
         print("url generated is \(urlString)")
-        //getSunTimes(with: urlString)
+
+        // calls the API and then the delegate methods
         resultGetSunTimes(with: urlString) { result in
 
             switch result {
@@ -53,32 +55,7 @@ struct SunTimesManager {
         }
     }
 
-   private func convertDataToModel(from sunData: SunData) -> CellModel {
-        var allSunData = [SunModel]()
-        var allMoonData = [MoonModel]()
-
-        let sunRiseTime = sunTimesConverter.convertToUsersTimeZone(time: sunData.sunrise)
-        let sunSetTime = sunTimesConverter.convertToUsersTimeZone(time: sunData.sunset)
-        let moonRiseTime = sunTimesConverter.convertToUsersTimeZone(time: sunData.moonrise)
-        let moonSetTime =  sunTimesConverter.convertToUsersTimeZone(time: sunData.moonset)
-
-        let dayLength = sunTimesConverter.convertDayLengthToHours(dayLength: sunData.dayLength) ?? "\(sunData.dayLength)"
-
-        let sunRiseData = SunModel(time: sunRiseTime, image: sunImages.sunRiseImage())
-        let sunSetData = SunModel(time: sunSetTime,image: sunImages.sunSetImage())
-        let moonRiseData = MoonModel(time: moonRiseTime, image: sunImages.moonRiseImage())
-        let moonSetData = MoonModel(time: moonSetTime, image: sunImages.moonSetImage())
-
-        allSunData.append(sunRiseData)
-        allSunData.append(sunSetData)
-        allMoonData.append(moonRiseData)
-        allMoonData.append(moonSetData)
-
-        let allData = CellModel(sun: allSunData, moon: allMoonData, dayLength: dayLength)
-
-        return allData
-    }
-
+    // MARK: Result which will pull our suntimes down
     func resultGetSunTimes(with url: String, completion: @escaping (Result<SunData, SunTimesError>) -> Void) {
         guard let url = URL(string: url) else {
             completion(.failure(.invalidURL))
@@ -109,61 +86,37 @@ struct SunTimesManager {
         }
         task.resume()
     }
-    
-   /* func getSunTimes(with url: String){
-        if let url = URL(string: url) {
-            let session = URLSession.shared
 
-            let task = session.dataTask(with: url) { (data, _, error) in
-                if error != nil {
-                    self.delegate?.didFailWithError(error: error!)
-                }
-                if let safeData = data {
-                    if let allSunData = self.decodeSunTimeData(sunTimesData: safeData) {
-                       self.delegate?.didUpdateTimes(sunTimesManager: self, sunTimesCellModel: allSunData)
-                    }
-                }
-            }
-            task.resume()
-        } */
-    }
-   
-    
-   /* func decodeSunTimeData(sunTimesData: Data) -> CellModel? {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+    // MARK: Convert our SunData from the API CAll into a CellModel to populate the cell
+    private func convertDataToModel(from sunData: SunData) -> CellModel {
         var allSunData = [SunModel]()
         var allMoonData = [MoonModel]()
-        do {
-            let decoder = try decoder.decode(SunData.self, from: sunTimesData)
-            
-            let sunRiseTime = sunTimesConverter.convertToUsersTimeZone(time: decoder.sunrise)
-            let sunSetTime = sunTimesConverter.convertToUsersTimeZone(time: decoder.sunset)
-            let moonRiseTime = sunTimesConverter.convertToUsersTimeZone(time: decoder.moonrise)
-            let moonSetTime =  sunTimesConverter.convertToUsersTimeZone(time: decoder.moonset)
 
-            let dayLength = sunTimesConverter.convertDayLengthToHours(dayLength: decoder.dayLength) ?? "\(decoder.dayLength)"
+        let sunRiseTime = sunTimesConverter.convertToUsersTimeZone(time: sunData.sunrise)
+        let sunSetTime = sunTimesConverter.convertToUsersTimeZone(time: sunData.sunset)
+        let moonRiseTime = sunTimesConverter.convertToUsersTimeZone(time: sunData.moonrise)
+        let moonSetTime =  sunTimesConverter.convertToUsersTimeZone(time: sunData.moonset)
 
-            let sunRiseData = SunModel(time: sunRiseTime, image: sunImages.sunRiseImage())
-            let sunSetData = SunModel(time: sunSetTime,image: sunImages.sunSetImage())
-            let moonRiseData = MoonModel(time: moonRiseTime, image: sunImages.moonRiseImage())
-            let moonSetData = MoonModel(time: moonSetTime, image: sunImages.moonSetImage())
+        let dayLength = sunTimesConverter.convertDayLengthToHours(dayLength: sunData.dayLength) ?? "\(sunData.dayLength)"
 
-            allSunData.append(sunRiseData)
-            allSunData.append(sunSetData)
-            allMoonData.append(moonRiseData)
-            allMoonData.append(moonSetData)
+        let sunRiseData = SunModel(time: sunRiseTime, image: sunImages.sunRiseImage())
+        let sunSetData = SunModel(time: sunSetTime,image: sunImages.sunSetImage())
+        let moonRiseData = MoonModel(time: moonRiseTime, image: sunImages.moonRiseImage())
+        let moonSetData = MoonModel(time: moonSetTime, image: sunImages.moonSetImage())
 
-            let allData = CellModel(sun: allSunData, moon: allMoonData, dayLength: dayLength)
+        allSunData.append(sunRiseData)
+        allSunData.append(sunSetData)
+        allMoonData.append(moonRiseData)
+        allMoonData.append(moonSetData)
 
-            return allData
-        } catch {
-            delegate?.didFailWithError(error: error)
-            return nil
-        }
+        let allData = CellModel(sun: allSunData, moon: allMoonData, dayLength: dayLength)
+
+        return allData
     }
+
 }
-*/
+
+// MARK: Sun and Moon SF Symbols
 struct SunImages {
     func sunRiseImage() -> UIImage {
         if #available(iOS 15, *) {
@@ -230,5 +183,5 @@ struct SunImages {
         }
     }
     
-   
+
 }
