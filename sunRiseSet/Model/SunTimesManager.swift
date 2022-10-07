@@ -18,7 +18,7 @@ protocol SunTimesManagerDelegate {
 //MARK: SunTimesErrors
 enum SunTimesError: String, Error {
     case invalidURL = "URL is invaild, unable to make API Call"
-    case unableToComplere = "Unable to complete request, please check internet connection"
+    case unableToComplete = "Unable to complete request, please check internet connection"
     case invalidData = "Data returned is invalid"
 
 }
@@ -66,7 +66,7 @@ struct SunTimesManager {
         let task = session.dataTask(with: url) { data, _, error in
 
             if let error = error {
-                completion(.failure(.unableToComplere))
+                completion(.failure(.unableToComplete))
                 return
             }
 

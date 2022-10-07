@@ -11,8 +11,6 @@ import UIKit
 class SunCell : UITableViewCell {
     
     static let identifier = K.shared.cellIdentifer
-
-    let mainView = MainView()
     
      var sunInfo: SunModel? {
         didSet {
