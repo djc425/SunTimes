@@ -12,11 +12,6 @@ class MainView: UIView {
     let sunshineBackround = UIImage(named: K.shared.sunshineBackground, in: Bundle.main, with: nil)
     let moonshineBackground = UIImage(named: K.shared.moonshineBackground, in: Bundle.main, with: nil)
 
-    var sunModels = [SunModel]()
-    //var sunURLS = [SunModelURL]()
-    var sunTimesManager = SunTimesManager()
-
-
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         configure()
